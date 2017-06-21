@@ -1,0 +1,25 @@
+<h1>Register an Aircraft</h1>
+
+<%= form_tag :action => 'create' do %>
+<p><label for = "registration_brand">Brand</label>:
+
+<%= text_field 'registration', 'brand' %></p>
+<p><label for = "registration_model">Model</label>:
+
+<%= text_field 'registration', 'model' %></p>
+<p><label for = "registration_engine">Engine</label>:
+
+<%= text_field 'registration', 'engine' %></p>
+<p><label for = "registration_aircraft_id">Aircraft</label>:
+<%= collection_select(:registrations, :aircraft_id, @aircrafts, :id, :name, prompt: true) %></p>
+
+<p><label for = "registration_owner_name">Name</label>:
+
+<%= text_field 'registration', 'owner_name' %></p>
+<p><label for = "registration_owner_surname">Surname</label>:
+
+<%= text_field 'registration', 'owner_surname' %></p>
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'list'} %>

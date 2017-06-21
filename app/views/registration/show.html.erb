@@ -1,0 +1,13 @@
+<h1><%= @registration.model %></h1>
+
+<p>
+   <strong>Brand :</strong> <%= @registration.brand %><br />
+   <strong>Model :</strong> <%= @registration.model %><br />
+   <strong>Engine :</strong> <%= @registration.engine %><br />
+   <strong>Aircraft :</strong> <%= @registration.aircraft.name %><br />
+   <strong>Created Date:</strong> <%= @registration.created_at %><br />
+</p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'list'} %>

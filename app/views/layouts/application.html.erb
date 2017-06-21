@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Aircraft Register</title>
+    <%= csrf_meta_tags %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li>
+                <a>Zalogowano jako:
+                <%= current_user.email %></a>
+              </li>
+              <li>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete)%>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to('Login', new_user_session_path)  %>
+              </li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  <div class="container">
+
+      <di class="notice"></p>
+      <p class="alert"></p>
+
+      <% if notice %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+      <!-- Main component for a primary marketing message or call to action -->
+
+
+    </div>
+  
+  </body>
+</html>
